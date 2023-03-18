@@ -1,16 +1,52 @@
 ﻿@page "/"
 @inject IDataRepository DataRepo
 
-<h1>Hello, world!</h1>
+<div class="row">
+@for (int i = 0; i < 10; i++)
+{
+    
+        <div class="col-lg-4 col-md-6 col-sm-12" style="padding-bottom: 30px;">
+            <RadzenCard Style="padding-bottom: 0;">
+                <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.Start" Gap="1rem" Class="rz-background-color-rz-primary-darker  rz-shadow-0 rz-p-4">
+                    <RadzenImage Path="Product.svg" Style="width: 100px; height: 100px; border-radius: 50%;" />
+                    <RadzenStack Gap="0">
+                        <RadzenText TextStyle="TextStyle.Overline" class="rz-display-flex rz-mt-2 rz-my-0">Product</RadzenText>
+                        <RadzenText TextStyle="TextStyle.Body1"><b>Cotton shirt</b></RadzenText>
+                        <RadzenText TextStyle="TextStyle.Overline" class="rz-display-flex rz-mt-4 rz-mb-0">Detail</RadzenText>
+                        <RadzenText TextStyle="TextStyle.Body1"><b>Smooth</b></RadzenText>
+                        <RadzenText TextStyle="TextStyle.Overline" class="rz-display-flex rz-mt-4 rz-mb-0">In stock Quantity</RadzenText>
+                        <RadzenText TextStyle="TextStyle.Body1"><b>50</b></RadzenText>
+                    </RadzenStack>
+                </RadzenStack>
+                <RadzenCard class="rz-background-color-primary-lighter rz-shadow-0 rz-border-radius-0 rz-p-8" style="margin: 1rem calc(-1 * var(--rz-card-padding));">
+                    <RadzenText TextStyle="TextStyle.H6" class="rz-color-primary-light"><strong>Inventory Detail</strong></RadzenText>
+                    <RadzenRow RowGap="0">
+                        <RadzenColumn SizeSM="6">
+                            <RadzenText TextStyle="TextStyle.Overline" class="rz-color-primary-light rz-display-flex rz-mt-4 rz-mb-0">Total Purchase</RadzenText>
+                            <RadzenText TextStyle="TextStyle.Body1"><b>250</b></RadzenText>
+                            <RadzenText TextStyle="TextStyle.Overline" class="rz-color-primary-light rz-display-flex rz-mt-4 rz-mb-0">Purchase Price(Avg)</RadzenText>
+                            <RadzenText TextStyle="TextStyle.Body1"><b>Rs : 520.00</b></RadzenText>
+                        </RadzenColumn>
+                        <RadzenColumn SizeSM="6">
+                            <RadzenText TextStyle="TextStyle.Overline" class="rz-color-primary-light rz-display-flex rz-mt-4 rz-mb-0">Total Sell</RadzenText>
+                            <RadzenText TextStyle="TextStyle.Body1"><b>200</b></RadzenText>
+                            <RadzenText TextStyle="TextStyle.Overline" class="rz-color-primary-light rz-display-flex rz-mt-4 rz-mb-0">Sell Price(Avg)</RadzenText>
+                            <RadzenText TextStyle="TextStyle.Body1"><b>Rs : 540.00</b></RadzenText>
+                        </RadzenColumn>
+                    </RadzenRow>
+                </RadzenCard>
+            </RadzenCard>
+            </div>
+       
 
-Welcome to your new app.
+}
+</div>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
-
-@code{
+@code {
+    string text = "Hi";
     protected async override void OnInitialized()
     {
-        var data = await DataRepo.GetProducts();
+        //var data = await DataRepo.GetProducts();
         base.OnInitialized();
     }
 }
